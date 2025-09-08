@@ -1214,6 +1214,21 @@ body {
     font-size: 4rem;
 }
 
+.leader-name-overlay {
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.9);
+    color: #1e40af;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-align: center;
+    white-space: nowrap;
+}
+
 .leader-info h3 {
     font-size: 1.8rem;
     margin-bottom: 0.5rem;
