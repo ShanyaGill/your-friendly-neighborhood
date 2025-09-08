@@ -1139,6 +1139,191 @@ body {
     padding: 1.5rem 3rem;
 }
 
+/* San Jose Leaders Section */
+.sj-leaders {
+    padding: 6rem 0;
+    background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
+    color: white;
+}
+
+.leaders-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.leader-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    padding: 2rem;
+    text-align: center;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.leader-card:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.leader-card.featured {
+    grid-column: span 2;
+    text-align: left;
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.leader-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 1.5rem;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+}
+
+.leader-card.featured .leader-image {
+    margin: 0;
+    width: 150px;
+    height: 150px;
+    flex-shrink: 0;
+}
+
+.leader-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.leader-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #4ade80 0%, #22d3ee 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    color: white;
+}
+
+.leader-card.featured .leader-placeholder {
+    font-size: 4rem;
+}
+
+.leader-info h3 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    color: white;
+}
+
+.leader-card.featured .leader-info h3 {
+    font-size: 2.2rem;
+}
+
+.leader-title {
+    font-size: 1rem;
+    color: #4ade80;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.leader-card.featured .leader-title {
+    font-size: 1.2rem;
+}
+
+.leader-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    opacity: 0.9;
+    margin-bottom: 1.5rem;
+}
+
+.leader-card.featured .leader-description {
+    font-size: 1.1rem;
+}
+
+.leader-focus {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.leader-card.featured .leader-focus {
+    justify-content: flex-start;
+}
+
+.focus-tag {
+    background: rgba(77, 222, 128, 0.3);
+    color: #4ade80;
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    border: 1px solid #4ade80;
+}
+
+.engagement-call {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    padding: 3rem;
+    text-align: center;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.engagement-content h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.engagement-content p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.engagement-stats {
+    display: flex;
+    justify-content: space-around;
+    gap: 2rem;
+}
+
+.engagement-stats .stat {
+    text-align: center;
+}
+
+.engagement-stats .stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #4ade80;
+    display: block;
+}
+
+.engagement-stats .stat-label {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin-top: 0.5rem;
+}
+
+.sj-leaders .section-title {
+    color: white;
+    background: none;
+    -webkit-text-fill-color: white;
+}
+
+.sj-leaders .section-subtitle {
+    color: rgba(255, 255, 255, 0.9);
+}
+
 /* Contact Section */
 .contact {
     padding: 6rem 0;
@@ -1335,6 +1520,31 @@ body {
     .leaders-content {
         grid-template-columns: 1fr;
         gap: 2rem;
+    }
+    
+    .leaders-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .leader-card.featured {
+        grid-column: span 1;
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+    
+    .leader-card.featured .leader-image {
+        margin: 0 auto 1rem;
+    }
+    
+    .leader-card.featured .leader-focus {
+        justify-content: center;
+    }
+    
+    .engagement-stats {
+        flex-direction: column;
+        gap: 1rem;
     }
     
     .join-content {
