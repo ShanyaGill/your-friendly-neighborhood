@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Friendly Neighborhood - Club Flyer</title>
+    <title>Your Friendly Neighborhood - Flyer</title>
     <style>
         @page {
             size: A4;
@@ -14,201 +14,235 @@
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            background: white;
+            color: #333;
+            line-height: 1.4;
         }
         
         .flyer {
+            width: 100%;
+            max-width: 8.5in;
+            margin: 0 auto;
             background: white;
-            width: 8.5in;
-            height: 11in;
-            padding: 0.5in;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            border-radius: 10px;
-            position: relative;
-            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
         }
         
         .header {
+            background: linear-gradient(135deg, #8B5CF6, #06B6D4);
+            color: white;
+            padding: 20px;
             text-align: center;
-            margin-bottom: 30px;
             position: relative;
         }
         
         .logo {
-            width: 120px;
-            height: 120px;
-            margin: 0 auto 20px;
-            display: block;
-        }
-        
-        .title {
-            font-size: 36px;
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 15px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
             font-weight: bold;
-            color: #4a5568;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+            color: #8B5CF6;
         }
         
-        .subtitle {
-            font-size: 18px;
-            color: #667eea;
-            font-weight: 600;
-            margin-bottom: 20px;
+        .header h1 {
+            margin: 0;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        
+        .header p {
+            margin: 10px 0 0;
+            font-size: 16px;
+            opacity: 0.9;
         }
         
         .content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin-bottom: 30px;
-        }
-        
-        .main-content {
-            background: #f7fafc;
             padding: 25px;
-            border-radius: 10px;
-            border-left: 5px solid #667eea;
         }
         
-        .main-content h3 {
-            color: #2d3748;
-            font-size: 20px;
-            margin-bottom: 15px;
-            font-weight: bold;
+        .section {
+            margin-bottom: 25px;
         }
         
-        .main-content p {
-            color: #4a5568;
-            line-height: 1.6;
-            margin-bottom: 15px;
+        .section h2 {
+            color: #8B5CF6;
+            font-size: 18px;
+            margin: 0 0 10px;
+            border-bottom: 2px solid #06B6D4;
+            padding-bottom: 5px;
+        }
+        
+        .section p {
+            margin: 0 0 10px;
             font-size: 14px;
         }
         
         .highlight-box {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
+            background: linear-gradient(135deg, #F3E8FF, #E0F7FA);
+            border-left: 4px solid #8B5CF6;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
         }
         
-        .highlight-box h3 {
-            color: white;
-            margin-bottom: 15px;
-            font-size: 18px;
-        }
-        
-        .highlight-box p {
-            color: white;
-            font-size: 14px;
-            line-height: 1.5;
-            margin-bottom: 0;
-        }
-        
-        .contact-info {
-            background: #2d3748;
-            color: white;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-            margin-top: 20px;
-        }
-        
-        .contact-info h3 {
-            color: #f7fafc;
-            margin-bottom: 10px;
-            font-size: 18px;
-        }
-        
-        .contact-info p {
-            color: #e2e8f0;
-            margin: 5px 0;
-            font-size: 14px;
-        }
-        
-        .decorative-elements {
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 100px;
-            height: 100px;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            border-radius: 0 10px 0 100px;
-            opacity: 0.1;
-        }
-        
-        .decorative-elements::before {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(45deg, #764ba2, #667eea);
-            border-radius: 0 0 0 50px;
-        }
-        
-        .qr-placeholder {
-            width: 80px;
-            height: 80px;
-            background: #e2e8f0;
-            border: 2px dashed #a0aec0;
-            border-radius: 10px;
+        .stats {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 10px auto;
-            color: #718096;
-            font-size: 10px;
+            justify-content: space-around;
+            background: #F8FAFC;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        
+        .stat {
             text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 24px;
+            font-weight: bold;
+            color: #8B5CF6;
+        }
+        
+        .stat-label {
+            font-size: 12px;
+            color: #666;
+        }
+        
+        .leaders {
+            background: #FFF7ED;
+            padding: 15px;
+            border-radius: 8px;
+            border: 2px solid #FED7AA;
+        }
+        
+        .contact {
+            background: linear-gradient(135deg, #8B5CF6, #06B6D4);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px;
+        }
+        
+        .contact h2 {
+            color: white;
+            border: none;
+            margin: 0 0 10px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: white;
+            color: #8B5CF6;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            margin: 10px 5px;
+            transition: all 0.3s;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .website {
+            text-align: center;
+            margin: 20px 0;
+            padding: 15px;
+            background: #F1F5F9;
+            border-radius: 8px;
+        }
+        
+        .website a {
+            color: #8B5CF6;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
         }
         
         @media print {
-            body {
-                background: white;
-            }
             .flyer {
                 box-shadow: none;
-                border-radius: 0;
             }
         }
     </style>
 </head>
 <body>
     <div class="flyer">
-        <div class="decorative-elements"></div>
-        
         <div class="header">
-            <img src="yfn-logo-transparent.png" alt="Your Friendly Neighborhood Logo" class="logo">
-            <h1 class="title">Upcoming Club:</h1>
-            <h2 class="subtitle">Your Friendly Neighborhood</h2>
+            <div class="logo">YFN</div>
+            <h1>Your Friendly Neighborhood</h1>
+            <p>Making San Jose Better, One Project at a Time</p>
         </div>
         
         <div class="content">
-            <div class="main-content">
-                <h3>What We Do</h3>
-                <p>Your Friendly Neighborhood is a hands-on group where students identify real issues in San José and work together to solve them. We focus on challenges in our community—such as sanitation, bike safety, and policy concerns—and reach out to the Youth Advisory Council, city officials, council members, and local organizations to take action.</p>
+            <div class="section">
+                <h2>�� What We Do</h2>
+                <p>We're a hands-on civic engagement club where students identify real issues in San Jose and learn how to solve them through action. We don't just talk about problems - we take action to fix them.</p>
                 
-                <p>Through this process, students gain the tools to connect with decision-makers, present ideas, and make tangible changes in their community.</p>
+                <div class="highlight-box">
+                    <strong>Our Mission:</strong> Change policy so that streets are clean, traffic flows better, and our community is safer. We add physical improvements AND work on policy changes.
+                </div>
             </div>
             
-            <div class="highlight-box">
-                <h3>Why Join?</h3>
-                <p>What I like most about this club is that the ideas brought forward by its members are always valued and taken into consideration. Your ideas will be presented as yours, and with the support of the club, they can turn into real changes. Here, you truly have the chance to make a difference.</p>
+            <div class="section">
+                <h2>📊 Our Impact</h2>
+                <div class="stats">
+                    <div class="stat">
+                        <div class="stat-number">3</div>
+                        <div class="stat-label">Active Projects</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Ideas Generated</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Policy Focus</div>
+                    </div>
+                </div>
             </div>
-        </div>
-        
-        <div class="contact-info">
-            <h3>Get Involved</h3>
-            <p><strong>Email:</strong> sgill266@student.fuhsd.org</p>
-            <p><strong>Website:</strong> shanyagill.github.io/your-friendly-neighborhood</p>
-            <div class="qr-placeholder">
-                Scan for<br>more info
+            
+            <div class="section">
+                <h2>��️ Working With City Leaders</h2>
+                <div class="leaders">
+                    <p>We work directly with San Jose's elected officials including the Mayor, Vice Mayor, and City Councilmembers. They support our student civic engagement initiatives and help us turn ideas into real policy changes.</p>
+                    <p><strong>Key Partners:</strong> District 1 Youth Advisory Council, Mayor's Office, City Council Districts 1-9</p>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>🚀 Current Projects</h2>
+                <p><strong>Lynbrook Morning Traffic Policy</strong> - Working to make morning dropoff more effective through policy changes and infrastructure improvements.</p>
+                <p><strong>Community Safety Initiatives</strong> - Installing safety equipment and advocating for better policies.</p>
+                <p><strong>Policy Research & Advocacy</strong> - Analyzing challenges and presenting solutions to city officials.</p>
+            </div>
+            
+            <div class="section">
+                <h2>✨ What Makes Us Different</h2>
+                <p>• <strong>Action-Oriented:</strong> We don't just plan - we install, build, and implement</p>
+                <p>• <strong>Policy-Focused:</strong> We change the rules, not just clean up after problems</p>
+                <p>• <strong>Student-Led:</strong> Real students solving real community problems</p>
+                <p>• <strong>Visible Impact:</strong> Every improvement gets our signature YFN sticker</p>
+            </div>
+            
+            <div class="contact">
+                <h2>🤝 Join Us!</h2>
+                <p>Ready to make a real difference in San Jose?</p>
+                <a href="https://form.jotform.com/252497451736062" class="btn">Get Involved</a>
+                <a href="mailto:sgill266@student.fuhsd.org" class="btn">Email Us</a>
+            </div>
+            
+            <div class="website">
+                <p>Learn more at:</p>
+                <a href="https://shanyagill.github.io/your-friendly-neighborhood/">shanyagill.github.io/your-friendly-neighborhood</a>
             </div>
         </div>
     </div>
