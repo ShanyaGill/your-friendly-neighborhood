@@ -3,12 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Friendly Neighborhood - Club Flyer</title>
+    <title>Your Friendly Neighborhood - Flyer</title>
     <style>
-        @page {
-            size: A4;
-            margin: 0.5in;
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
         
         * {
             margin: 0;
@@ -17,147 +14,181 @@
         }
         
         body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.4;
-            color: #333;
-            background: white;
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
         }
         
         .flyer {
-            width: 100%;
-            max-width: 8.5in;
-            margin: 0 auto;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 0.5in;
-            min-height: 11in;
+            width: 8.5in;
+            height: 11in;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
             position: relative;
         }
         
         .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
             text-align: center;
-            margin-bottom: 0.3in;
+            position: relative;
         }
         
         .logo {
-            width: 1.5in;
-            height: 1.5in;
-            margin: 0 auto 0.2in;
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
             background: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-        }
-        
-        .logo img {
-            width: 1.2in;
-            height: 1.2in;
-            object-fit: contain;
+            font-size: 24px;
+            font-weight: 700;
+            color: #667eea;
         }
         
         .title {
-            font-size: 2.2em;
-            font-weight: bold;
-            margin-bottom: 0.1in;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
         
         .subtitle {
-            font-size: 1.1em;
+            font-size: 18px;
+            font-weight: 400;
             opacity: 0.9;
-            margin-bottom: 0.3in;
         }
         
         .content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0.3in;
-            margin-bottom: 0.3in;
+            padding: 40px;
         }
         
-        .left-column, .right-column {
-            background: rgba(255,255,255,0.1);
-            padding: 0.25in;
-            border-radius: 8px;
-            backdrop-filter: blur(10px);
+        .section {
+            margin-bottom: 30px;
         }
         
         .section-title {
-            font-size: 1.3em;
-            font-weight: bold;
-            margin-bottom: 0.15in;
-            color: #FFD700;
+            font-size: 24px;
+            font-weight: 600;
+            color: #667eea;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
         }
         
-        .section-content {
-            font-size: 0.9em;
-            line-height: 1.3;
+        .section-title::before {
+            content: '';
+            width: 4px;
+            height: 24px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin-right: 12px;
+            border-radius: 2px;
         }
         
         .highlight-box {
-            background: rgba(255,215,0,0.2);
-            border: 2px solid #FFD700;
-            border-radius: 8px;
-            padding: 0.2in;
-            margin: 0.2in 0;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
             text-align: center;
         }
         
         .highlight-box h3 {
-            font-size: 1.2em;
-            margin-bottom: 0.1in;
-            color: #FFD700;
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .highlight-box p {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+        
+        .bullet-points {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .bullet-points li {
+            padding: 8px 0;
+            font-size: 16px;
+            color: #333;
+            display: flex;
+            align-items: center;
+        }
+        
+        .bullet-points li::before {
+            content: '✓';
+            color: #667eea;
+            font-weight: bold;
+            margin-right: 12px;
+            font-size: 18px;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .cta-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            margin: 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
         }
         
         .contact-info {
-            background: rgba(255,255,255,0.15);
-            padding: 0.2in;
-            border-radius: 8px;
-            margin-top: 0.2in;
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 15px;
             text-align: center;
+            margin-top: 20px;
         }
         
-        .contact-info h3 {
-            font-size: 1.1em;
-            margin-bottom: 0.1in;
-            color: #FFD700;
+        .contact-info h4 {
+            color: #667eea;
+            font-size: 18px;
+            margin-bottom: 10px;
         }
         
-        .qr-placeholder {
-            width: 1in;
-            height: 1in;
-            background: white;
-            border-radius: 4px;
-            margin: 0.1in auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.7em;
-            color: #333;
-            text-align: center;
-        }
-        
-        .footer {
-            position: absolute;
-            bottom: 0.2in;
-            left: 0.5in;
-            right: 0.5in;
-            text-align: center;
-            font-size: 0.8em;
-            opacity: 0.8;
-            border-top: 1px solid rgba(255,255,255,0.3);
-            padding-top: 0.1in;
+        .contact-info p {
+            color: #666;
+            font-size: 16px;
         }
         
         .stats {
             display: flex;
             justify-content: space-around;
-            margin: 0.2in 0;
-            background: rgba(255,255,255,0.1);
-            padding: 0.15in;
-            border-radius: 8px;
+            margin: 20px 0;
         }
         
         .stat {
@@ -165,111 +196,87 @@
         }
         
         .stat-number {
-            font-size: 1.5em;
-            font-weight: bold;
-            color: #FFD700;
+            font-size: 32px;
+            font-weight: 700;
+            color: #667eea;
         }
         
         .stat-label {
-            font-size: 0.8em;
-            margin-top: 0.05in;
-        }
-        
-        @media print {
-            .flyer {
-                margin: 0;
-                padding: 0.5in;
-            }
+            font-size: 14px;
+            color: #666;
+            margin-top: 5px;
         }
     </style>
 </head>
 <body>
     <div class="flyer">
         <div class="header">
-            <div class="logo">
-                <img src="yfn-logo-transparent.png" alt="Your Friendly Neighborhood Logo">
-            </div>
+            <div class="logo">YFN</div>
             <h1 class="title">Your Friendly Neighborhood</h1>
             <p class="subtitle">Making San Jose Better, One Project at a Time</p>
         </div>
         
-        <div class="stats">
-            <div class="stat">
-                <div class="stat-number">0</div>
-                <div class="stat-label">Members<br>(Starting Soon!)</div>
-            </div>
-            <div class="stat">
-                <div class="stat-number">2</div>
-                <div class="stat-label">Ideas We're<br>Thinking About</div>
-            </div>
-            <div class="stat">
-                <div class="stat-number">1</div>
-                <div class="stat-label">Main Focus:<br>Dropoff</div>
-            </div>
-        </div>
-        
         <div class="content">
-            <div class="left-column">
-                <h2 class="section-title">🎯 What We Do</h2>
-                <div class="section-content">
-                    <p><strong>Analyze & Advocate:</strong> We identify real community issues and work to solve them through policy advocacy, connecting with city officials, and strategic action.</p>
-                    <br>
-                    <p><strong>Connect & Advocate:</strong> We connect with youth commissioners, city officials, and local organizations to turn our ideas into real policy changes.</p>
-                    <br>
-                    <p><strong>Policy & Action:</strong> We focus on systemic solutions through policy advocacy while also proposing practical improvements.</p>
-                </div>
-                
-                <h2 class="section-title">🌟 Our Mission</h2>
-                <div class="section-content">
-                    <p>A hands-on civic engagement group where students identify real issues in San Jose and learn how to solve them through action. We don't just focus on learning about government—this club focuses on doing!</p>
+            <div class="highlight-box">
+                <h3>🎯 We Don't Just Talk - We Act!</h3>
+                <p>Students identifying real issues and solving them through policy change and community action</p>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">What We Do</h2>
+                <ul class="bullet-points">
+                    <li>Analyze real community problems</li>
+                    <li>Connect with city officials & youth commissioners</li>
+                    <li>Advocate for policy changes</li>
+                    <li>Install physical improvements (traffic cones, safety equipment)</li>
+                    <li>Brand everything with our signature YFN sticker</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">Current Focus</h2>
+                <div class="highlight-box">
+                    <h3>🚦 Lynbrook Morning Traffic Policy</h3>
+                    <p>Making morning dropoff more effective through policy research and infrastructure improvements</p>
                 </div>
             </div>
             
-            <div class="right-column">
-                <h2 class="section-title">💡 Current Focus</h2>
-                <div class="section-content">
-                    <p><strong>Lynbrook Morning Traffic Policy:</strong> Working to make morning dropoff more effective and safer for students and families.</p>
-                    <br>
-                    <p><strong>Community Safety:</strong> Proposing structural improvements like traffic cones for bike safety along Rainbow Drive.</p>
+            <div class="section">
+                <h2 class="section-title">Why Join?</h2>
+                <ul class="bullet-points">
+                    <li>Develop real-world civic engagement skills</li>
+                    <li>Make tangible change in your community</li>
+                    <li>Connect with San Jose leaders</li>
+                    <li>Build your resume with meaningful projects</li>
+                    <li>Be part of something bigger than yourself</li>
+                </ul>
+            </div>
+            
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-number">0%</div>
+                    <div class="stat-label">Just Getting Started</div>
                 </div>
-                
-                <h2 class="section-title">🤝 Partners</h2>
-                <div class="section-content">
-                    <p>• District 1 Youth Advisory Council<br>
-                    • San Jose City Officials<br>
-                    • Mayor Matt Mahan<br>
-                    • Local Community Organizations</p>
+                <div class="stat">
+                    <div class="stat-number">∞</div>
+                    <div class="stat-label">Potential Impact</div>
                 </div>
-                
-                <h2 class="section-title">🎓 Skills You'll Develop</h2>
-                <div class="section-content">
-                    <p>• Research & Analysis<br>
-                    • Policy Advocacy<br>
-                    • Public Speaking<br>
-                    • Community Organizing<br>
-                    • Leadership & Communication</p>
+                <div class="stat">
+                    <div class="stat-number">YOU</div>
+                    <div class="stat-label">Can Make a Difference</div>
                 </div>
             </div>
         </div>
         
-        <div class="highlight-box">
-            <h3>🚀 Ready to Make a Difference?</h3>
-            <p>Join our interest form and be part of the change!</p>
-            <div class="qr-placeholder">
-                QR Code<br>
-                (Scan to join)
-            </div>
+        <div class="cta-section">
+            <h3 class="cta-title">Ready to Make a Difference?</h3>
+            <a href="https://form.jotform.com/252497451736062" class="cta-button">Join Us Now!</a>
+            <a href="https://shanyagill.github.io/your-friendly-neighborhood/" class="cta-button">Learn More</a>
         </div>
         
         <div class="contact-info">
-            <h3>📧 Contact Us</h3>
-            <p><strong>Email:</strong> sgill266@student.fuhsd.org</p>
-            <p><strong>Website:</strong> shanyagill.github.io/your-friendly-neighborhood</p>
-            <p><strong>Interest Form:</strong> form.jotform.com/252497451736062</p>
-        </div>
-        
-        <div class="footer">
-            <p>Your Friendly Neighborhood • Lynbrook High School • Making San Jose Better Through Civic Engagement</p>
+            <h4>📧 Contact Us</h4>
+            <p>sgill266@student.fuhsd.org</p>
         </div>
     </div>
 </body>
