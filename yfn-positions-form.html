@@ -152,6 +152,12 @@
             box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
         }
 
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
         .footer {
             background: #f8f9fa;
             padding: 20px 30px;
@@ -169,6 +175,36 @@
             font-weight: 600;
             font-size: 0.9rem;
             margin-top: 10px;
+        }
+
+        .success-message {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: none;
+        }
+
+        .error-message {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: none;
+        }
+
+        .alternative-contact {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            color: #856404;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
+            text-align: center;
         }
 
         @media (max-width: 768px) {
@@ -202,92 +238,104 @@
             <p>Your Friendly Neighborhood - Making It Better</p>
         </div>
 
-        <form class="form-container" action="https://formsubmit.co/gillshanya@gmail.com" method="POST">
-            <!-- FormSubmit Configuration -->
-            <input type="hidden" name="_subject" value="New YFN Position Application">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_template" value="table">
-            
-            <div class="form-group">
-                <label for="name">Full Name <span class="required">*</span></label>
-                <input type="text" id="name" name="name" required>
+        <div class="form-container">
+            <div id="success-message" class="success-message">
+                <strong>Thank you!</strong> Your application has been submitted successfully. We'll get back to you soon!
             </div>
 
-            <div class="form-group">
-                <label for="email">Email Address <span class="required">*</span></label>
-                <input type="email" id="email" name="email" required>
+            <div id="error-message" class="error-message">
+                <strong>Oops!</strong> There was an issue submitting your application. Please try the alternative method below.
             </div>
 
-            <div class="form-group">
-                <label for="grade">Grade Level <span class="required">*</span></label>
-                <select id="grade" name="grade" required>
-                    <option value="">Select your grade</option>
-                    <option value="9th Grade">9th Grade</option>
-                    <option value="10th Grade">10th Grade</option>
-                    <option value="11th Grade">11th Grade</option>
-                    <option value="12th Grade">12th Grade</option>
-                </select>
-            </div>
+            <form id="yfn-form" method="POST">
+                <div class="form-group">
+                    <label for="name">Full Name <span class="required">*</span></label>
+                    <input type="text" id="name" name="name" required>
+                </div>
 
-            <div class="form-group">
-                <label>Officer Positions <span class="required">*</span></label>
-                <p style="margin-bottom: 15px; color: #666; font-size: 0.95rem;">Select the officer position(s) you're interested in:</p>
-                <div class="checkbox-group">
-                    <div class="checkbox-item">
-                        <input type="checkbox" id="secretary" name="officer_positions" value="Secretary">
-                        <label for="secretary">Secretary</label>
-                    </div>
-                    <div class="checkbox-item">
-                        <input type="checkbox" id="treasurer" name="officer_positions" value="Treasurer">
-                        <label for="treasurer">Treasurer</label>
-                    </div>
-                    <div class="checkbox-item">
-                        <input type="checkbox" id="officer_large" name="officer_positions" value="Officer at Large">
-                        <label for="officer_large">Officer at Large</label>
+                <div class="form-group">
+                    <label for="email">Email Address <span class="required">*</span></label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="grade">Grade Level <span class="required">*</span></label>
+                    <select id="grade" name="grade" required>
+                        <option value="">Select your grade</option>
+                        <option value="9th Grade">9th Grade</option>
+                        <option value="10th Grade">10th Grade</option>
+                        <option value="11th Grade">11th Grade</option>
+                        <option value="12th Grade">12th Grade</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Officer Positions <span class="required">*</span></label>
+                    <p style="margin-bottom: 15px; color: #666; font-size: 0.95rem;">Select the officer position(s) you're interested in:</p>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="secretary" name="officer_positions" value="Secretary">
+                            <label for="secretary">Secretary</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="treasurer" name="officer_positions" value="Treasurer">
+                            <label for="treasurer">Treasurer</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="officer_large" name="officer_positions" value="Officer at Large">
+                            <label for="officer_large">Officer at Large</label>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="form-group">
-                <label>Working Groups</label>
-                <p style="margin-bottom: 15px; color: #666; font-size: 0.95rem;">Select the working group(s) you'd like to lead or contribute to:</p>
-                <div class="checkbox-group">
-                    <div class="checkbox-item">
-                        <input type="checkbox" id="media" name="working_groups" value="Media Group">
-                        <label for="media">Media Group</label>
-                    </div>
-                    <div class="checkbox-item">
-                        <input type="checkbox" id="recruitment" name="working_groups" value="Recruitment Group">
-                        <label for="recruitment">Recruitment Group</label>
-                    </div>
-                    <div class="checkbox-item">
-                        <input type="checkbox" id="policy" name="working_groups" value="Policy Research Group">
-                        <label for="policy">Policy Research Group</label>
-                    </div>
-                    <div class="checkbox-item">
-                        <input type="checkbox" id="community" name="working_groups" value="Community Outreach Group">
-                        <label for="community">Community Outreach Group</label>
+                <div class="form-group">
+                    <label>Working Groups</label>
+                    <p style="margin-bottom: 15px; color: #666; font-size: 0.95rem;">Select the working group(s) you'd like to lead or contribute to:</p>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="media" name="working_groups" value="Media Group">
+                            <label for="media">Media Group</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="recruitment" name="working_groups" value="Recruitment Group">
+                            <label for="recruitment">Recruitment Group</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="policy" name="working_groups" value="Policy Research Group">
+                            <label for="policy">Policy Research Group</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="community" name="working_groups" value="Community Outreach Group">
+                            <label for="community">Community Outreach Group</label>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="form-group">
-                <label for="experience">Relevant Experience & Why You're Interested</label>
-                <textarea id="experience" name="experience" placeholder="Tell us about any leadership experience, civic engagement, or why you want to be part of YFN's mission to make San Jose better..."></textarea>
-            </div>
+                <div class="form-group">
+                    <label for="experience">Relevant Experience & Why You're Interested</label>
+                    <textarea id="experience" name="experience" placeholder="Tell us about any leadership experience, civic engagement, or why you want to be part of YFN's mission to make San Jose better..."></textarea>
+                </div>
 
-            <div class="form-group">
-                <label for="ideas">Ideas for YFN</label>
-                <textarea id="ideas" name="ideas" placeholder="What community issues would you like YFN to tackle? Any ideas for policy advocacy or community improvements?"></textarea>
-            </div>
+                <div class="form-group">
+                    <label for="ideas">Ideas for YFN</label>
+                    <textarea id="ideas" name="ideas" placeholder="What community issues would you like YFN to tackle? Any ideas for policy advocacy or community improvements?"></textarea>
+                </div>
 
-            <div class="form-group">
-                <label for="availability">Availability & Commitment</label>
-                <textarea id="availability" name="availability" placeholder="What's your availability for meetings and YFN activities? How much time can you commit per week?"></textarea>
-            </div>
+                <div class="form-group">
+                    <label for="availability">Availability & Commitment</label>
+                    <textarea id="availability" name="availability" placeholder="What's your availability for meetings and YFN activities? How much time can you commit per week?"></textarea>
+                </div>
 
-            <button type="submit" class="submit-btn">Submit Application</button>
-        </form>
+                <button type="submit" id="submit-btn" class="submit-btn">Submit Application</button>
+            </form>
+
+            <div class="alternative-contact">
+                <strong>Alternative Submission Method:</strong><br>
+                If you experience any issues with this form, please email your application directly to: 
+                <strong>gillshanya@gmail.com</strong><br>
+                Include all the information requested above in your email.
+            </div>
+        </div>
 
         <div class="footer">
             <p>Your application will be reviewed by the YFN founding team.</p>
@@ -297,14 +345,91 @@
     </div>
 
     <script>
-        // Form validation
-        document.querySelector('form').addEventListener('submit', function(e) {
-            const officerPositions = document.querySelectorAll('input[name="officer_positions"]:checked');
+        document.getElementById('yfn-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
             
+            // Validate officer positions
+            const officerPositions = document.querySelectorAll('input[name="officer_positions"]:checked');
             if (officerPositions.length === 0) {
-                e.preventDefault();
                 alert('Please select at least one officer position you\'re interested in.');
                 return;
+            }
+
+            // Disable submit button and show loading
+            const submitBtn = document.getElementById('submit-btn');
+            const originalText = submitBtn.textContent;
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Submitting...';
+
+            // Collect form data
+            const formData = new FormData(this);
+            
+            // Collect multiple checkbox values
+            const officerRoles = Array.from(document.querySelectorAll('input[name="officer_positions"]:checked'))
+                .map(cb => cb.value).join(', ');
+            const workingGroups = Array.from(document.querySelectorAll('input[name="working_groups"]:checked'))
+                .map(cb => cb.value).join(', ');
+
+            // Create email body
+            const emailBody = `
+YFN Position Application
+
+Name: ${formData.get('name')}
+Email: ${formData.get('email')}
+Grade: ${formData.get('grade')}
+
+Officer Positions Interested In: ${officerRoles}
+Working Groups: ${workingGroups || 'None selected'}
+
+Experience & Interest: ${formData.get('experience') || 'Not provided'}
+
+Ideas for YFN: ${formData.get('ideas') || 'Not provided'}
+
+Availability: ${formData.get('availability') || 'Not provided'}
+
+Submitted: ${new Date().toLocaleString()}
+            `.trim();
+
+            try {
+                // Try FormSubmit first
+                const response = await fetch('https://formsubmit.co/gillshanya@gmail.com', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        _subject: 'New YFN Position Application',
+                        _captcha: 'false',
+                        _template: 'table',
+                        message: emailBody,
+                        name: formData.get('name'),
+                        email: formData.get('email')
+                    })
+                });
+
+                if (response.ok) {
+                    document.getElementById('success-message').style.display = 'block';
+                    this.reset();
+                } else {
+                    throw new Error('FormSubmit failed');
+                }
+            } catch (error) {
+                // If FormSubmit fails, create mailto link
+                const subject = encodeURIComponent('YFN Position Application');
+                const body = encodeURIComponent(emailBody);
+                const mailtoLink = `mailto:gillshanya@gmail.com?subject=${subject}&body=${body}`;
+                
+                // Show error message and mailto option
+                document.getElementById('error-message').style.display = 'block';
+                
+                // Auto-open email client after a short delay
+                setTimeout(() => {
+                    window.location.href = mailtoLink;
+                }, 2000);
+            } finally {
+                // Re-enable submit button
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalText;
             }
         });
 
