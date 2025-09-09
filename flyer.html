@@ -15,7 +15,7 @@
         
         body {
             font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #f8f9fa;
             min-height: 100vh;
             display: flex;
             justify-content: center;
@@ -27,44 +27,40 @@
             width: 8.5in;
             height: 11in;
             background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             overflow: hidden;
-            position: relative;
         }
         
         .header {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 30px;
+            padding: 40px 30px;
             text-align: center;
-            position: relative;
         }
         
         .logo {
-            width: 80px;
-            height: 80px;
+            width: 60px;
+            height: 60px;
             margin: 0 auto 20px;
             background: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 24px;
+            font-size: 20px;
             font-weight: 700;
             color: #667eea;
         }
         
         .title {
-            font-size: 36px;
+            font-size: 32px;
             font-weight: 700;
             margin-bottom: 10px;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
         
         .subtitle {
-            font-size: 18px;
-            font-weight: 400;
+            font-size: 16px;
             opacity: 0.9;
         }
         
@@ -72,67 +68,21 @@
             padding: 40px;
         }
         
-        .section {
+        .main-text {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #333;
             margin-bottom: 30px;
         }
         
-        .section-title {
-            font-size: 24px;
-            font-weight: 600;
-            color: #667eea;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-        }
-        
-        .section-title::before {
-            content: '';
-            width: 4px;
-            height: 24px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            margin-right: 12px;
-            border-radius: 2px;
-        }
-        
-        .highlight-box {
+        .highlight {
             background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
             color: white;
-            padding: 20px;
+            padding: 25px;
             border-radius: 15px;
-            margin: 20px 0;
-            text-align: center;
-        }
-        
-        .highlight-box h3 {
-            font-size: 20px;
-            font-weight: 600;
-            margin-bottom: 10px;
-        }
-        
-        .highlight-box p {
+            margin: 30px 0;
             font-size: 16px;
-            opacity: 0.9;
-        }
-        
-        .bullet-points {
-            list-style: none;
-            padding: 0;
-        }
-        
-        .bullet-points li {
-            padding: 8px 0;
-            font-size: 16px;
-            color: #333;
-            display: flex;
-            align-items: center;
-        }
-        
-        .bullet-points li::before {
-            content: '✓';
-            color: #667eea;
-            font-weight: bold;
-            margin-right: 12px;
-            font-size: 18px;
+            line-height: 1.5;
         }
         
         .cta-section {
@@ -143,12 +93,6 @@
             margin-top: 20px;
         }
         
-        .cta-title {
-            font-size: 24px;
-            font-weight: 600;
-            margin-bottom: 15px;
-        }
-        
         .cta-button {
             display: inline-block;
             background: white;
@@ -157,54 +101,14 @@
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 18px;
+            font-size: 16px;
             margin: 10px;
-            transition: transform 0.3s ease;
         }
         
-        .cta-button:hover {
-            transform: translateY(-2px);
-        }
-        
-        .contact-info {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 15px;
+        .contact {
             text-align: center;
             margin-top: 20px;
-        }
-        
-        .contact-info h4 {
-            color: #667eea;
-            font-size: 18px;
-            margin-bottom: 10px;
-        }
-        
-        .contact-info p {
             color: #666;
-            font-size: 16px;
-        }
-        
-        .stats {
-            display: flex;
-            justify-content: space-around;
-            margin: 20px 0;
-        }
-        
-        .stat {
-            text-align: center;
-        }
-        
-        .stat-number {
-            font-size: 32px;
-            font-weight: 700;
-            color: #667eea;
-        }
-        
-        .stat-label {
-            font-size: 14px;
-            color: #666;
-            margin-top: 5px;
         }
     </style>
 </head>
@@ -213,70 +117,26 @@
         <div class="header">
             <div class="logo">YFN</div>
             <h1 class="title">Your Friendly Neighborhood</h1>
-            <p class="subtitle">Making San Jose Better, One Project at a Time</p>
+            <p class="subtitle">Making San José Better, One Project at a Time</p>
         </div>
         
         <div class="content">
-            <div class="highlight-box">
-                <h3>🎯 We Don't Just Talk - We Act!</h3>
-                <p>Students identifying real issues and solving them through policy change and community action</p>
-            </div>
+            <p class="main-text">
+                Your Friendly Neighborhood is a hands-on group where students identify real issues in San José and work together to solve them. We focus on challenges in our community—such as sanitation, bike safety, and policy concerns—and reach out to the Youth Advisory Council, city officials, council members, and local organizations to take action. Through this process, students gain the tools to connect with decision-makers, present ideas, and make tangible changes in their community.
+            </p>
             
-            <div class="section">
-                <h2 class="section-title">What We Do</h2>
-                <ul class="bullet-points">
-                    <li>Analyze real community problems</li>
-                    <li>Connect with city officials & youth commissioners</li>
-                    <li>Advocate for policy changes</li>
-                    <li>Install physical improvements (traffic cones, safety equipment)</li>
-                    <li>Brand everything with our signature YFN sticker</li>
-                </ul>
-            </div>
-            
-            <div class="section">
-                <h2 class="section-title">Current Focus</h2>
-                <div class="highlight-box">
-                    <h3>🚦 Lynbrook Morning Traffic Policy</h3>
-                    <p>Making morning dropoff more effective through policy research and infrastructure improvements</p>
-                </div>
-            </div>
-            
-            <div class="section">
-                <h2 class="section-title">Why Join?</h2>
-                <ul class="bullet-points">
-                    <li>Develop real-world civic engagement skills</li>
-                    <li>Make tangible change in your community</li>
-                    <li>Connect with San Jose leaders</li>
-                    <li>Build your resume with meaningful projects</li>
-                    <li>Be part of something bigger than yourself</li>
-                </ul>
-            </div>
-            
-            <div class="stats">
-                <div class="stat">
-                    <div class="stat-number">0%</div>
-                    <div class="stat-label">Just Getting Started</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-number">∞</div>
-                    <div class="stat-label">Potential Impact</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-number">YOU</div>
-                    <div class="stat-label">Can Make a Difference</div>
-                </div>
+            <div class="highlight">
+                <strong>What I like most about this club is that the ideas brought forward by its members are always valued and taken into consideration. Your ideas will be presented as yours, and with the support of the club, they can turn into real changes. Here, you truly have the chance to make a difference.</strong>
             </div>
         </div>
         
         <div class="cta-section">
-            <h3 class="cta-title">Ready to Make a Difference?</h3>
             <a href="https://form.jotform.com/252497451736062" class="cta-button">Join Us Now!</a>
             <a href="https://shanyagill.github.io/your-friendly-neighborhood/" class="cta-button">Learn More</a>
         </div>
         
-        <div class="contact-info">
-            <h4>📧 Contact Us</h4>
-            <p>sgill266@student.fuhsd.org</p>
+        <div class="contact">
+            <p>📧 sgill266@student.fuhsd.org</p>
         </div>
     </div>
 </body>
