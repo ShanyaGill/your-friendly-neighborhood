@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Friendly Neighborhood - Informative Flyer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.4;
+            color: #333;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+        
+        .flyer {
+            width: 210mm;
+            min-height: 297mm;
+            max-width: 210mm;
+            margin: 10px auto;
+            background: white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            overflow: hidden;
+            position: relative;
+        }
+        
+        /* Top Section */
+        .top-section {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            background: white;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        .blank-space {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        
+        .logo-sticker {
+            width: 200px;
+            height: auto;
+            max-width: 100%;
+        }
+        
+        .qr-codes-section {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+        
+        .qr-item {
+            text-align: center;
+        }
+        
+        .qr-label {
+            font-size: 0.65rem;
+            color: #374151;
+            font-weight: 600;
+            margin: 0;
+        }
+        
+        /* Stats Section */
+        .stats-banner {
+            background: linear-gradient(135deg, #4ade80 0%, #22d3ee 100%);
+            padding: 15px;
+            display: flex;
+            justify-content: space-around;
+            color: white;
+            font-weight: 600;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 1.5rem;
+            font-weight: 900;
+        }
+        
+        .stat-label {
+            font-size: 0.8rem;
+            opacity: 0.9;
+        }
+        
+
+        
+        .qr-placeholder {
+            width: 80px;
+            height: 80px;
+            border: 2px dashed #7c3aed;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            box-shadow: 0 1px 5px rgba(124, 58, 237, 0.1);
+            margin-bottom: 5px;
+        }
+        
+        .qr-placeholder-text {
+            text-align: center;
+            color: #7c3aed;
+        }
+        
+        .qr-placeholder-text i {
+            font-size: 1.2rem;
+            margin-bottom: 2px;
+            display: block;
+        }
+        
+        .qr-placeholder-text p {
+            font-size: 0.5rem;
+            font-weight: 600;
+            margin: 0;
+            line-height: 1.1;
+        }
+
+        /* Main Content */
+        .content {
+            padding: 15px;
+        }
+        
+        .section {
+            margin-bottom: 12px;
+        }
+        
+        .section h2 {
+            color: #7c3aed;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .section h2 i {
+            color: #4ade80;
+        }
+        
+        .mission-box {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            border-left: 3px solid #7c3aed;
+            padding: 12px;
+            border-radius: 10px;
+            margin-bottom: 12px;
+            position: relative;
+        }
+        
+        .mission-box::after {
+            content: '';
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 40px;
+            height: 40px;
+            background: #7c3aed;
+            border: 3px solid #ffffff;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .mission-box p {
+            font-size: 0.8rem;
+            line-height: 1.4;
+            color: #4b5563;
+        }
+        
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin: 12px 0;
+        }
+        
+        .feature-card {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 10px;
+            padding: 10px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .feature-card:hover {
+            border-color: #7c3aed;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(124, 58, 237, 0.1);
+        }
+        
+        .feature-card h3 {
+            color: #7c3aed;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .feature-card p {
+            font-size: 0.7rem;
+            color: #6b7280;
+            line-height: 1.3;
+        }
+        
+        .feature-icon {
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(135deg, #4ade80 0%, #22d3ee 100%);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.7rem;
+        }
+        
+        /* Projects Section */
+        .projects-list {
+            background: #f9fafb;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 15px 0;
+        }
+        
+        .project-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 12px 0;
+            border-bottom: 1px solid #e5e7eb;
+            position: relative;
+        }
+        
+        .project-item:last-child {
+            border-bottom: none;
+        }
+        
+        .project-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.1rem;
+            position: relative;
+        }
+        
+        .project-sticker {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            width: 20px;
+            height: 15px;
+            background: #7c3aed;
+            border: 2px solid white;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.4rem;
+            font-weight: 900;
+            color: #10b981;
+            text-transform: uppercase;
+        }
+        
+        .project-info h4 {
+            color: #374151;
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        
+        .project-info p {
+            color: #6b7280;
+            font-size: 0.8rem;
+            line-height: 1.3;
+        }
+        
+        .project-status {
+            background: #fef3c7;
+            color: #92400e;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            margin-left: auto;
+        }
+        
+        /* Leaders Section */
+        .leaders-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin: 15px 0;
+        }
+        
+        .leader-card {
+            text-align: center;
+            padding: 12px;
+            background: white;
+            border-radius: 10px;
+            border: 2px solid #e5e7eb;
+        }
+        
+        .leader-avatar {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #7c3aed 0%, #4ade80 100%);
+            border-radius: 50%;
+            margin: 0 auto 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+        
+        .leader-name {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 2px;
+        }
+        
+        .leader-title {
+            font-size: 0.7rem;
+            color: #6b7280;
+        }
+        
+        /* Orange Section */
+        .orange-section {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            border-radius: 12px;
+            padding: 15px;
+            margin: 12px 0;
+        }
+        
+        .orange-section h2 {
+            color: white;
+            margin-bottom: 10px;
+        }
+        
+        .orange-section h2 i {
+            color: #fbbf24;
+        }
+        
+        .orange-section .feature-card {
+            background: rgba(255, 255, 255, 0.95);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .orange-section .feature-card:hover {
+            background: white;
+            border-color: #fbbf24;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        
+        /* QR Code Section */
+        .qr-section {
+            background: #f9fafb;
+            border-radius: 10px;
+            padding: 12px;
+            margin: 10px 0;
+        }
+        
+        .qr-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        
+        .qr-code {
+            width: 100px;
+            height: 100px;
+            border-radius: 10px;
+            border: 2px solid #7c3aed;
+            box-shadow: 0 2px 8px rgba(124, 58, 237, 0.2);
+        }
+        
+        .qr-info {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .qr-info h3 {
+            color: #7c3aed;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+        
+        .qr-info p {
+            color: #6b7280;
+            line-height: 1.3;
+            margin-bottom: 4px;
+            font-size: 0.7rem;
+        }
+        
+        .qr-info p strong {
+            color: #4ade80;
+            font-weight: 600;
+        }
+        
+        /* Call to Action */
+        .cta-section {
+            background: linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 12px;
+            text-align: center;
+            margin: 12px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="%23ffffff" opacity="0.1"/><circle cx="80" cy="40" r="1" fill="%23ffffff" opacity="0.1"/><circle cx="40" cy="80" r="1.5" fill="%23ffffff" opacity="0.1"/></svg>');
+        }
+        
+        .cta-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .cta-section h3 {
+            font-size: 1rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+        
+        .cta-section p {
+            font-size: 0.75rem;
+            margin-bottom: 10px;
+            opacity: 0.9;
+        }
+        
+        .contact-section {
+            text-align: center;
+            margin-top: 10px;
+        }
+        
+        .contact-text {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            border: 2px solid #4ade80;
+            border-radius: 20px;
+            padding: 12px 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: inline-block;
+            color: white;
+            margin: 0;
+            line-height: 1.4;
+        }
+        
+        .contact-text i {
+            margin-right: 8px;
+            color: #4ade80;
+        }
+        
+        .contact-text strong {
+            color: #4ade80;
+        }
+        
+
+        
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+            }
+            
+            .flyer {
+                box-shadow: none;
+                margin: 0;
+                max-width: none;
+            }
+            
+            .cta-button {
+                border: 2px solid #4ade80 !important;
+            }
+        }
+        
+        /* Responsive */
+        @media (max-width: 600px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .leaders-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .stats-banner {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .footer {
+                grid-template-columns: 1fr;
+            }
+            
+            .qr-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .qr-info {
+                min-width: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="flyer">
+        <!-- Top Section with QR Codes -->
+        <div class="top-section">
+            <div class="blank-space">
+                <img src="yfn-sticker-exact.svg" alt="Your Friendly Neighborhood" class="logo-sticker">
+            </div>
+            <div class="qr-codes-section">
+                <div class="qr-item">
+                    <div class="qr-placeholder">
+                        <div class="qr-placeholder-text">
+                            <i class="fas fa-qrcode"></i>
+                            <p>Website<br>QR Code</p>
+                        </div>
+                    </div>
+                    <p class="qr-label">Visit Our Website</p>
+                </div>
+                <div class="qr-item">
+                    <div class="qr-placeholder">
+                        <div class="qr-placeholder-text">
+                            <i class="fas fa-qrcode"></i>
+                            <p>Interest Form<br>QR Code</p>
+                        </div>
+                    </div>
+                    <p class="qr-label">Join Interest Form</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="content">
+            <!-- Mission -->
+            <div class="section">
+                <h2><i class="fas fa-bullseye"></i>Our Mission</h2>
+                <div class="mission-box">
+                    <p><strong>Your Friendly Neighborhood</strong> is a hands-on civic engagement club where students identify real issues in San Jose and learn to solve them through action. We don't just talk about problems—we create real solutions through policy advocacy, community partnerships, and strategic improvements.</p>
+                </div>
+            </div>
+            
+            <!-- What We Do -->
+            <div class="section">
+                <h2><i class="fas fa-cogs"></i>What We Do</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <h3><div class="feature-icon"><i class="fas fa-search"></i></div>Analyze & Advocate</h3>
+                        <p>Identify community issues and develop policy solutions by connecting with city officials and youth commissioners.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3><div class="feature-icon"><i class="fas fa-handshake"></i></div>Connect & Engage</h3>
+                        <p>Build relationships with local leaders and organizations to turn ideas into real policy changes.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3><div class="feature-icon"><i class="fas fa-tools"></i></div>Install & Improve</h3>
+                        <p>Make physical improvements like safety equipment and cleaning supplies—all branded with YFN stickers.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3><div class="feature-icon"><i class="fas fa-graduation-cap"></i></div>Learn & Lead</h3>
+                        <p>Develop real-world skills in research, communication, project management, and civic leadership.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Partner Groups -->
+            <div class="section orange-section">
+                <h2><i class="fas fa-users"></i>Who We Partner With</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <h3><div class="feature-icon"><i class="fas fa-landmark"></i></div>City Councilmembers</h3>
+                        <p>Work directly with San Jose City Council members across all 10 districts to advocate for policy changes and community improvements.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3><div class="feature-icon"><i class="fas fa-users-cog"></i></div>Youth Advisory Councils</h3>
+                        <p>Collaborate with District Youth Advisory Councils where teens provide input on policies affecting young people.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3><div class="feature-icon"><i class="fas fa-building"></i></div>Local Organizations</h3>
+                        <p>Partner with community groups and non-profits to amplify our impact and learn from experienced advocates.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3><div class="feature-icon"><i class="fas fa-clipboard-list"></i></div>City Commissioners</h3>
+                        <p>Connect with city commissioners and staff who support student-led initiatives and civic engagement projects.</p>
+                    </div>
+                </div>
+            </div>
+            
+
+            <!-- Call to Action -->
+            <div class="cta-section">
+                <div class="cta-content">
+                    <h3>Ready to Make Real Change?</h3>
+                    <p>Join students who don't just complain—we advocate for solutions! Learn civic engagement, connect with city officials, and build a portfolio of real community impact.</p>
+                    <div class="contact-section">
+                        <p class="contact-text">
+                            <i class="fas fa-envelope"></i>
+                            If you have any questions, email Shanya Gill at <strong>gillshanya@gmail.com</strong>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+    </div>
+</body>
+</html>
