@@ -204,9 +204,7 @@
                 <strong>Oops!</strong> There was an issue submitting your application. Please try the alternative method below.
             </div>
             
-            <form id="positionForm" action="https://formspree.io/gillshanya@gmail.com" method="POST">
-                <input type="hidden" name="_subject" value="New YFN Leadership Position Application">
-                <input type="hidden" name="_next" value="https://shanyagill.github.io/your-friendly-neighborhood/yfn-positions-form.html">
+            <form id="positionForm" action="mailto:gillshanya@gmail.com" method="post" enctype="text/plain">
                 
                 <div class="form-group">
                     <label for="fullName">Full Name <span class="required">*</span></label>
@@ -310,8 +308,12 @@
                 return;
             }
             
-            // Form will submit normally to Formspree
-            // Formspree will redirect back to the page with success
+            // Show success message immediately
+            document.getElementById('successMessage').style.display = 'block';
+            document.getElementById('errorMessage').style.display = 'none';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            
+            // The form will submit via mailto which opens their email client
         });
     </script>
 </body>
