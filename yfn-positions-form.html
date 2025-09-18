@@ -204,7 +204,10 @@
                 <strong>Oops!</strong> There was an issue submitting your application. Please try the alternative method below.
             </div>
             
-            <form id="positionForm" action="https://formspree.io/f/xdkogqpv" method="POST">
+            <form id="positionForm" action="https://formspree.io/gillshanya@gmail.com" method="POST">
+                <input type="hidden" name="_subject" value="New YFN Leadership Position Application">
+                <input type="hidden" name="_next" value="https://shanyagill.github.io/your-friendly-neighborhood/yfn-positions-form.html">
+                
                 <div class="form-group">
                     <label for="fullName">Full Name <span class="required">*</span></label>
                     <input type="text" id="fullName" name="fullName" required>
@@ -299,49 +302,16 @@
     
     <script>
         document.getElementById('positionForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
             // Check if at least one position is selected
             const checkboxes = document.querySelectorAll('input[name="positions"]:checked');
             if (checkboxes.length === 0) {
+                e.preventDefault();
                 alert('Please select at least one position you\'re interested in.');
                 return;
             }
             
-            // Submit form to Formspree
-            const form = this;
-            const formData = new FormData(form);
-            
-            fetch(form.action, {
-                method: 'POST',
-                body: formData,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            }).then(response => {
-                if (response.ok) {
-                    // Show success message
-                    document.getElementById('successMessage').style.display = 'block';
-                    document.getElementById('errorMessage').style.display = 'none';
-                    
-                    // Scroll to top to show success message
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                    
-                    // Reset form
-                    form.reset();
-                } else {
-                    throw new Error('Form submission failed');
-                }
-            }).catch(error => {
-                // Show error message
-                document.getElementById('errorMessage').style.display = 'block';
-                document.getElementById('successMessage').style.display = 'none';
-                
-                // Scroll to top to show error message
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-                
-                console.error('Error submitting form:', error);
-            });
+            // Form will submit normally to Formspree
+            // Formspree will redirect back to the page with success
         });
     </script>
 </body>
