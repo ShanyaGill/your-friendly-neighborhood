@@ -204,11 +204,14 @@
                 <strong>Oops!</strong> There was an issue submitting your application. Please try the alternative method below.
             </div>
             
-            <form id="positionForm" action="mailto:gillshanya@gmail.com" method="post" enctype="text/plain">
+            <form id="positionForm" action="https://formsubmit.co/gillshanya@gmail.com" method="POST">
+                <input type="hidden" name="_subject" value="New YFN Position Application">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_template" value="table">
                 
                 <div class="form-group">
                     <label for="fullName">Full Name <span class="required">*</span></label>
-                    <input type="text" id="fullName" name="fullName" required>
+                    <input type="text" id="fullName" name="name" required>
                 </div>
                 
                 <div class="form-group">
@@ -308,12 +311,8 @@
                 return;
             }
             
-            // Show success message immediately
-            document.getElementById('successMessage').style.display = 'block';
-            document.getElementById('errorMessage').style.display = 'none';
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-            
-            // The form will submit via mailto which opens their email client
+            // Form will submit normally to FormSubmit
+            // FormSubmit will handle the email and redirect
         });
     </script>
 </body>
